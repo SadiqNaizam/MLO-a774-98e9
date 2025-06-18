@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme"; // Import defaultTheme
 
 export default {
 	darkMode: ["class"],
@@ -21,12 +22,12 @@ export default {
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
+				ring: 'hsl(var(--ring))', // Will use the updated --ring variable
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					DEFAULT: 'hsl(var(--primary))', // Will use the updated --primary
+					foreground: 'hsl(var(--primary-foreground))' // Will use the updated --primary-foreground
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -41,8 +42,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: 'hsl(var(--accent))', // Will use the updated --accent
+					foreground: 'hsl(var(--accent-foreground))' // Will use the updated --accent-foreground
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -52,7 +53,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
+				sidebar: { // Sidebar colors remain mapped to their specific CSS variables
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
@@ -68,6 +69,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+			fontFamily: { // Added fontFamily extension
+        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
